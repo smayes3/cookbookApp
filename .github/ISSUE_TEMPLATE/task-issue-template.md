@@ -9,4 +9,4 @@ assignees: ''
 
 **User Story: [#story title]**
 **Time estimate:**
-**- Actual time:**
+**Actual time:**
