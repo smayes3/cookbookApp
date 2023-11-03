@@ -7,6 +7,10 @@ assignees: ''
 
 ---
 
-**User Story: [#story title]**
+
+- Update documentation
+
+**User Story:**
+
 **Time estimate:**
 **Actual time:**
