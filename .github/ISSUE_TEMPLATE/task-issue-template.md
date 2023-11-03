@@ -7,6 +7,6 @@ assignees: ''
 
 ---
 
-- User Story: [#story title]
-- Time estimate:
-- Actual time:
+**User Story: [#story title]**
+**Time estimate:**
+**- Actual time:**
