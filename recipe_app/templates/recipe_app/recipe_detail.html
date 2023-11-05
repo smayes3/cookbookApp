@@ -1,0 +1,20 @@
+{% extends 'recipe_app/base_template.html' %}
+
+{% block content %}
+
+<!-- display the recipe title -->
+<h1> {{ recipe.title }}</h1>
+
+<!-- display recipe info -->
+<h3>Ingredients:</h3>
+<p>
+    {{ recipe.ingredients }}
+</p>
+
+<h3>Directions:</h3>
+<p>
+    {{ recipe.directions }}
+</p>
+
+{% endblock %}
+

@@ -10,4 +10,9 @@ urlpatterns = [
     # example in html <a href="{% url 'index' %}">Home</a>.
 
     path('', views.index, name='index'),
+
+    #add paths for generic recipe list and detail views
+    path('recipes/', views.RecipeListView.as_view(), name='recipes'),
+    path('recipe/<int:pk>', views.RecipeDetailView.as_view(), name='recipe-detail'),
+
 ]

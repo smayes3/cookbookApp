@@ -1,0 +1,23 @@
+{% extends 'recipe_app/base_template.html' %}
+
+{% block content %}
+
+<h1>Recipe List</h1>
+
+<!-- if recipe list exists -->
+{% if recipe_list %}
+<ul>
+    <!-- for each recipe in the list -->
+    {% for recipe in recipe_list %}
+    <li>
+        <!-- create list item for each recipe -->
+        <a href="{{ recipe.get_absolute_url }}">{{ recipe.title }}</a>
+    </li>
+    {% endfor %}
+</ul>
+<!-- if no recipe list exists, give msg -->
+{% else %}
+<p> There are no recipes in the cookbook. </p>
+
+{% endif %}
+{% endblock %}

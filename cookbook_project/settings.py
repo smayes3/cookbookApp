@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'recipe_app' #add app
+    'recipe_app', #add app
+    'django_bootstrap5', #bootstrap
 ]
 
 #add support for authenticating users
