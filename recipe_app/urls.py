@@ -11,8 +11,11 @@ urlpatterns = [
 
     path('', views.index, name='index'),
 
-    #add paths for generic recipe list and detail views
+    #add view paths
     path('recipes/', views.RecipeListView.as_view(), name='recipes'),
     path('recipe/<int:pk>', views.RecipeDetailView.as_view(), name='recipe-detail'),
-
+    path('recipes/create_recipe/', views.createRecipe, name='create_recipe'),
+    path('recipes/delete_recipe/<int:pk>', views.deleteRecipe, name='delete_recipe'),
+    path('recipes/update_recipe/<int:pk>', views.updateRecipe, name='update_recipe'),
+    
 ]

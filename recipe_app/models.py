@@ -5,9 +5,9 @@ from django.urls import reverse
 
 #create recipe model
 class Recipe(models.Model):
-    title = models.TextField(blank=False, help_text="Enter title of recipe.")
-    ingredients = models.TextField(blank=False, help_text="Enter the ingredients.")
-    directions = models.TextField(blank=False, help_text="Enter the directions.")
+    title = models.CharField(max_length=200, blank=False)
+    ingredients = models.TextField(blank=False)
+    directions = models.TextField(blank=False)
 
     def __str__(self):
         return self.title

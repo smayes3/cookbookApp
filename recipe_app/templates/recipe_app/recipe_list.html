@@ -2,7 +2,10 @@
 
 {% block content %}
 
-<h1>Recipe List</h1>
+<h1>Recipe Cards</h1>
+
+<!-- add button to create recipe -->
+<a class="btn btn-primary" href="{% url 'create_recipe' %}" role="button"> New Recipe </a>
 
 <!-- if recipe list exists -->
 {% if recipe_list %}
@@ -11,7 +14,11 @@
     {% for recipe in recipe_list %}
     <li>
         <!-- create list item for each recipe -->
-        <a href="{{ recipe.get_absolute_url }}">{{ recipe.title }}</a>
+        {{ recipe.title }}
+        <a class="btn btn-primary" href="{{ recipe.get_absolute_url }}" role="button"> View Recipe </a>
+        <a class="btn btn-danger" href="{% url 'delete_recipe' recipe.pk %}" role="button"> Delete </a>
+        <a class="btn btn-warning" href="{% url 'update_recipe' recipe.pk %}" role="button"> Update </a>
+
     </li>
     {% endfor %}
 </ul>
