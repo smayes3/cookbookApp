@@ -21,4 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     #connect path to recipe_app urls
     path('', include('recipe_app.urls')),
+    #connect path to user accounts url for authentication
+    path('accounts/', include('django.contrib.auth.urls')),
 ]

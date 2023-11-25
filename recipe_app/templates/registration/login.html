@@ -1,0 +1,44 @@
+<!-- inherit from base_template.html -->
+{% extends "recipe_app/base_template.html" %}
+
+{% block content %}
+
+    <!-- check for valid un/pw match -->
+    {% if form.errors %}
+        <div id="un_pw_error" class="alert alert-danger d-flex justify-content-center" role="alert">
+            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Error:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+            <span class="justify-content-center"> Incorrect username and/or password! Please try again. </span>
+
+        </div>
+    {% endif %}
+
+    <!-- check if user is authenticated -->
+    {% if next %}
+        {% if user.is_authenticated %}
+            <p> Your account does not have access to this page. Please login with an account that has access. </p>
+        {% else %}
+            <p> Please login to see this page. </p>
+        {% endif %}
+    {% endif %}
+
+    <!-- give login box -->
+    <form method="POST" action="{% url 'login' %}">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <td id="username_label"> {{ form.username.label_tag }} </td>
+                <td id="username_input" aria-required="true" aria-label="Username"> {{ form.username }} </td>
+            </tr>
+            <tr>
+                <td id="password_label"> {{ form.password.label_tag }} </td>
+                <td id="password_input" aria-required="true" aria-label="Password"> {{ form.password }} </td>
+            </tr>
+        </table>
+        <input type="submit" title="login" name="login" id="login" value="login">
+        <input type="hidden" name="next" id="next" value="{{ next }}">
+    </form>
+
+    <!-- give forgot password button, setup in URLconf -->
+    <p> <a href="{% url 'password_reset' %}" aria-label="Forgot password" title="Forgot password"> Forgot password </a></p>
+
+{% endblock %}

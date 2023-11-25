@@ -32,14 +32,15 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
+    'recipe_app', #add app
+    'django_bootstrap5', #bootstrap
     'django.contrib.auth',
+    'django.contrib.admin',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'recipe_app', #add app
-    'django_bootstrap5', #bootstrap
+    
 ]
 
 #add support for authenticating users
@@ -62,7 +63,7 @@ ROOT_URLCONF = 'cookbook_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -138,3 +139,8 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = '/images/'
 
+# redirect to home URL after login
+LOGIN_REDIRECT_URL = '/'
+
+# send email for pw reset to console
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

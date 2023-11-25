@@ -1,0 +1,16 @@
+<!-- inherit from base_template.html-->
+{% extends "recipe_app/base_template.html" %}
+
+{% block content %}
+    <div id="logout_success" class="alert alert-success d-flex align-items-center" role="alert">
+        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+
+        <h1 class="alert-heading position-absolute top-50 start-50 translate-middle"> You have been logged out! </h1> 
+    </div>
+
+    <p class="position-absolute top-25 start-50 translate-middle"><a href="{% url 'login'%}"> Click here to login again. </a></p>
+
+
+
+{% endblock %}
+
