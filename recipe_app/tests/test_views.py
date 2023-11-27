@@ -38,15 +38,4 @@ class CreateRecipeViewTest(TestCase):
         response = self.client.get(reverse('create_recipe'))
         self.assertRedirects(response, '/accounts/login/?next=/recipes/create_recipe/')
 
-    # def test_logged_uses_correct_template(self):
-    #     login = self.client.login(username='user1', password='testPW123')
-    #     response = self.client.get(reverse('create_recipe'))
-
-    #     #check if user logged in
-    #     self.assertEqual(response.context['username'], 'user1')
-
-    #     #check if respinse is success
-    #     self.assertEqual(response.status_code, 200)
-
-    #     #check correct template used
-    #     self.assertTemplateUsed(response, 'recipe_app/recipe_form.html')
+   
