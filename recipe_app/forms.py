@@ -9,8 +9,7 @@ from django.contrib.auth.models import User
 class RecipeForm(ModelForm):
     class Meta:
         model = Recipe
-        fields = ('title', 'ingredients', 'directions')
-
+        fields = ['title', 'ingredients', 'directions']
 
 
 #create class for the user registration form
