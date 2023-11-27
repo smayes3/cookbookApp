@@ -8,7 +8,6 @@
         <div id="un_pw_error" class="alert alert-danger d-flex justify-content-center" role="alert">
             <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Error:"><use xlink:href="#exclamation-triangle-fill"/></svg>
             <span class="justify-content-center"> Incorrect username and/or password! Please try again. </span>
-
         </div>
     {% endif %}
 
@@ -22,23 +21,33 @@
     {% endif %}
 
     <!-- give login box -->
-    <form method="POST" action="{% url 'login' %}">
+    <form method="POST" action="{% url 'login' %}" class="form-group">
         {% csrf_token %}
-        <table>
+
+        <!-- render the form fields -->
+        <input type="text" name="username" placeholder="Username..." class="form-control">
+        <input type="password" name="password" placeholder="Password..." class="form-control">
+
+        
+
+
+        <!-- <table>
             <tr>
-                <td id="username_label"> {{ form.username.label_tag }} </td>
+                <td id="username_label"> {{ form.username.label }} </td>
                 <td id="username_input" aria-required="true" aria-label="Username"> {{ form.username }} </td>
             </tr>
             <tr>
-                <td id="password_label"> {{ form.password.label_tag }} </td>
+                <td id="password_label"> {{ form.password.label }} </td>
                 <td id="password_input" aria-required="true" aria-label="Password"> {{ form.password }} </td>
             </tr>
-        </table>
+        </table> -->
         <input type="submit" title="login" name="login" id="login" value="login">
         <input type="hidden" name="next" id="next" value="{{ next }}">
     </form>
 
     <!-- give forgot password button, setup in URLconf -->
     <p> <a href="{% url 'password_reset' %}" aria-label="Forgot password" title="Forgot password"> Forgot password </a></p>
+    <p> <a href="{% url 'register_page' %}" aria-label="Register user" title="Register user"> Register </a></p>
+
 
 {% endblock %}

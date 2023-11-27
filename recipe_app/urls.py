@@ -17,5 +17,10 @@ urlpatterns = [
     path('recipes/create_recipe/', views.createRecipe, name='create_recipe'),
     path('recipes/delete_recipe/<int:pk>', views.deleteRecipe, name='delete_recipe'),
     path('recipes/update_recipe/<int:pk>', views.updateRecipe, name='update_recipe'),
+
+    #add registration/login/logout pages
+    path('accounts/register/', views.registerPage, name='register_page'),
+    path('accounts/login/', views.loginPage, name='login'),
+    path('accounts/logout/', views.logoutUser, name='logout'),
     
 ]

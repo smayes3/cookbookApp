@@ -5,6 +5,9 @@ from .models import *
 from django.views import generic
 from django.contrib import messages
 from recipe_app.forms import *
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -21,6 +24,7 @@ class RecipeDetailView(generic.DetailView):
     model = Recipe
 
 #create view for new recipe using forms
+@login_required(login_url='login')
 def createRecipe(request):
     #create a new recipe form
     form = RecipeForm()
@@ -44,6 +48,7 @@ def createRecipe(request):
 
 
 #create view to delete recipe
+@login_required(login_url='login')
 def deleteRecipe(request, pk):
     #get recipe to delte
     recipe = get_object_or_404(Recipe, pk=pk)
@@ -64,6 +69,7 @@ def deleteRecipe(request, pk):
 
 
 #create view to update recipe
+@login_required(login_url='login')
 def updateRecipe(request, pk):
     #init dictionary
     context = {}
@@ -83,3 +89,49 @@ def updateRecipe(request, pk):
     context["form"] = form
     return render(request, 'recipe_app/recipe_update.html', context)
 
+
+#create view for creating a user
+def registerPage(request):
+    if request.user.is_authenticated:
+        return redirect('index')
+    else:
+        form = CreateUserForm()
+
+        if request.method == 'POST':
+            form = CreateUserForm(request.POST)
+            if form.is_valid:
+                form.save()
+                user = form.cleaned_data.get('username')
+                messages.success(request, 'Account was created for ' + user)
+                return redirect('login')
+        
+
+        context = {'form':form}
+        return render(request, 'registration/register.html', context)
+
+
+#create view for login
+def loginPage(request):
+    if request.user.is_authenticated:
+        return redirect('index')
+    else:
+        if request.method == 'POST':
+            username = request.POST.get('username')
+            password = request.POST.get('password')
+
+            user = authenticate(request, username=username, password=password)
+
+            if user is not None:
+                login(request, user)
+                return redirect('index')
+            else:
+                messages.info(request, "Username OR password is incorrect!")
+
+        context = {}
+        return render(request, 'registration/login.html', context)
+
+
+#create view for logout
+def logoutUser(request):
+    logout(request)
+    return redirect('login')

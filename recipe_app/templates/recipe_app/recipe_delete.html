@@ -12,7 +12,7 @@
     {% csrf_token %}
 
     <input class="btn btn-primary" type="submit" value="Yes">
-    <input class="btn btn-danger" type="submit" value="Cancel">
+    <button onclick="window.history.back();" class="btn btn-danger" type="button">Cancel</button>
 </form>
 
 {% endblock %}
