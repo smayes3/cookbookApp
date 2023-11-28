@@ -1,11 +1,13 @@
 from django.db import models
 from django.urls import reverse
+from django import forms
 
 # Create your models here.
 
 #create recipe model
 class Recipe(models.Model):
     title = models.CharField(max_length=200, blank=False)
+    createdBy = models.CharField(max_length=20, blank=False)
     ingredients = models.TextField(blank=False)
     directions = models.TextField(blank=False)
 

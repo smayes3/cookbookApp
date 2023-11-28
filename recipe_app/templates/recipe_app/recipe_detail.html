@@ -4,17 +4,18 @@
 
 <!-- display the recipe title -->
 <h1> {{ recipe.title }}</h1>
+<h5> {{ recipe.createdBy }}</h5>
 
 <!-- display recipe info -->
-<h4>Ingredients:</h4>
-<p>
-    {{ recipe.ingredients }}
-</p>
+<h3>Ingredients:</h3>
+<ul>
+    {{ recipe.ingredients|linebreaksbr }} 
+</ul>
 
-<h4>Directions:</h4>
-<p>
-    {{ recipe.directions }}
-</p>
+<h3>Directions:</h3>
+<ul>
+    {{ recipe.directions|linenumbers|linebreaksbr }}
+</ul>
 
 {% endblock %}
 

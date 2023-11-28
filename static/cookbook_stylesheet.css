@@ -1,0 +1,65 @@
+/* Base template */
+
+body {
+    /*background-color: rgba(79,111,96,0.3);*/
+    background-color: #8eaa908d;
+}
+
+#navbar {
+    background-color: #505561;
+    
+}
+
+a.nav-link {
+    color: #a58777;
+    font-weight: bolder;
+    font-size: 1.6rem;
+    font-family: 'Bellota Text'
+}
+
+
+/* index */
+#indexBody {
+    color: #4f5561;
+}
+
+#indexH1 {
+    font-weight: bolder;
+}
+
+#indexOverview {
+    font-weight: 600;
+}
+
+#hzIndex {
+    background-color: #a58777;
+    border: none;
+    height: 10px;
+    opacity: 0.8;
+}
+
+/* recipe list */
+#recCards {
+    display: flex;
+    align-items: center;
+    height: 100px;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+#newRecipeBtn {
+    background: #a58777;
+    color:#4f5561;
+    font-weight:bold;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    margin-bottom: 20px;
+}
+
+#viewRecipeBtn{
+    background: #4f556199;
+    color: whitesmoke;
+}
