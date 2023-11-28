@@ -4,5 +4,4 @@
 
 ***
 
-Build documentation <!-- link to requirements doc -->    
-App Requirements <!-- link to requirements doc -->    
+[Build documentation](cookbookApp_documentation.docx)
